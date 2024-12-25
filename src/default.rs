@@ -87,4 +87,8 @@ fn move_scene_entities(
             }
         }
     }
+    // This assert is used to exit sooner, so we can see how the numbers behave
+    //assert!(children.iter().count() < 14);
+    // Transform count starts off at 4, child count starts off at 0
+    // Then over a single tick they go to the values documented above
 }

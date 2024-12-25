@@ -25,7 +25,7 @@ fn main() {
                 .unwrap(),
         ))
         // Removing this will change the entity counts (see: move_scene_entities)
-        .rollback_component_with_clone::<SceneRoot>()
+        //.rollback_component_with_clone::<SceneRoot>()
         // These have no impact, can be commented or not
         .rollback_component_with_clone::<Transform>()
         .rollback_component_with_clone::<GlobalTransform>()
@@ -116,4 +116,9 @@ fn move_scene_entities(
             }
         }
     }
+
+    // This assert is used to exit sooner, so we can see how the numbers behave
+    //assert!(children.iter().count() < 14);
+    // Transform count starts off at 4, child count starts off at 0
+    // Then over a single tick they go to the values documented above
 }
