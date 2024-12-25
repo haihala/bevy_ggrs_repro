@@ -14,3 +14,7 @@ path = "src/default.rs"
 [[bin]]
 name = "rollback"
 path = "src/rollback.rs"
+
+[[bin]]
+name = "rollback2"
+path = "src/rollback2.rs"
