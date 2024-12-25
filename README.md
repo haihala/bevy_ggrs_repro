@@ -7,6 +7,7 @@ There are three versions:
 - `default` which is pretty much 1:1 from the Bevy "Update glTF Scene" -example
 - `rollback`, which is the same with added `bevy_ggrs` stuff
 - `rollback2`, which is `rollback`, but with the rollback components added to a new root entity
+    - This one works again -> The bug has to do with SceneRoot + Rollback on the same entity
 
 Run with `cargo run --bin <version>`and feel free to play with the code.
 
