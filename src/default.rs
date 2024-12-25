@@ -2,6 +2,8 @@
 //! Update a scene from a glTF file, either by spawning the scene as a child of another entity,
 //! or by accessing the entities of the scene.
 
+#![allow(unused_must_use)]
+
 use bevy::{pbr::DirectionalLightShadowMap, prelude::*};
 
 fn main() {
@@ -61,10 +63,21 @@ fn move_scene_entities(
     children: Query<&Children>,
     mut transforms: Query<&mut Transform>,
 ) {
+    dbg!(
+        transforms.iter().count(), // Outputs 30
+        children.iter().count()    // Outputs 16
+    );
     for moved_scene_entity in &moved_scene {
+        let helmet_children = children.get(moved_scene_entity);
+        dbg!(
+            moved_scene_entity, // The helmet root seems to exist
+            helmet_children     // Ok, finds one child (root in the scene)
+        );
         let mut offset = 0.;
         for entity in children.iter_descendants(moved_scene_entity) {
+            dbg!(entity); // Finds the children
             if let Ok(mut transform) = transforms.get_mut(entity) {
+                dbg!(&transform); // Finds a transform, moves it
                 transform.translation = Vec3::new(
                     offset * ops::sin(time.elapsed_secs()) / 20.,
                     0.,

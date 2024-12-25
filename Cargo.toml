@@ -5,3 +5,12 @@ edition = "2021"
 
 [dependencies]
 bevy = "0.15"
+bevy_ggrs = "0.17.0"
+
+[[bin]]
+name = "default"
+path = "src/default.rs"
+
+[[bin]]
+name = "rollback"
+path = "src/rollback.rs"
